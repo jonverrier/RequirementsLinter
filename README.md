@@ -5,7 +5,7 @@ Because no-one wants a fluffy requirement.
 Influenced by Annie Vella's work on collaborative AI-Driven Development (which you can find [here](https://annievella.com/posts/the-sdlc-strikes-back/) and [here](https://dl.acm.org/doi/10.1145/3715003)). 
 
 Why build this:
-AI isn't just accelerating development, it is changing the way we build software. We are not writing all the code by hand anymore. We are increasingly writing specifications and prompts for AI coding assistants to generate code for us. These specifications and prompts need to be clearer to stateholders and LLMs. This tool addresses that problem.  
+AI isn't just accelerating development, it is changing the way we build software. We are not writing all the code by hand anymore. We are increasingly writing specifications and prompts for AI coding assistants to generate code for us. These specifications and prompts need to be clearer to stakeholders and LLMs. This tool addresses that problem.  
 
 How it works:
 We prompt an LLM (currently OpenAI GPT5) to review your user story or formal requirement against a set of guidelines. 
