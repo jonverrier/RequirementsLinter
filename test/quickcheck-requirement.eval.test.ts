@@ -25,11 +25,8 @@
 
 
 import { expect } from 'expect';
-import { describe, it } from 'mocha';
 import { quickCheckLooksLikeRequirement } from '../src/QuickCheck';
-import { EModelProvider } from 'prompt-repository';
-import { EModel } from 'prompt-repository';
-import { ChatDriverFactory } from 'prompt-repository';
+import { EModelProvider, EModel, ChatDriverFactory } from '@jonverrier/prompt-repository';
 import sinon from 'sinon';
 
 const SESSION_ID = '1234567890';
@@ -47,19 +44,19 @@ describe('quickCheckLooksLikeRequirement Integration Tests', () => {
       const input = "The system shall process user requests within 200ms.";
       const result = await quickCheckLooksLikeRequirement({ statement: input, beFriendly: true, sessionId: SESSION_ID });
       expect(result.isSpecification).toBe(true);
-   }).timeout(TEST_TIMEOUT);
+   });
 
    it('should identify another valid requirement', async () => {
       const input = "The application shall support a minimum of 1000 concurrent users.";
       const result = await quickCheckLooksLikeRequirement({ statement: input, beFriendly: true, sessionId: SESSION_ID });
       expect(result.isSpecification).toBe(true);
-   }).timeout(TEST_TIMEOUT);
+   });
 
    it('should reject a non-requirement statement', async () => {
       const input = "I really like cheese.";
       const result = await quickCheckLooksLikeRequirement({ statement: input, beFriendly: true, sessionId: SESSION_ID });
       expect(result.isSpecification).toBe(false);
-   }).timeout(TEST_TIMEOUT);
+   });
 
    it('should handle ambiguous statement with friendly mode on', async () => {
       const input = hack;
@@ -78,7 +75,7 @@ describe('quickCheckLooksLikeRequirement Integration Tests', () => {
       }
       
       expect(result.isSpecification).toBe(true);
-   }).timeout(TEST_TIMEOUT);
+   });
 
    it('should handle ambiguous statement with friendly mode off', async () => {
       const input = hack;
@@ -96,11 +93,11 @@ describe('quickCheckLooksLikeRequirement Integration Tests', () => {
       }
             
       expect(result.isSpecification).toBe(false);
-   }).timeout(TEST_TIMEOUT);
+   });
 
    it('should identify technical requirement', async () => {
       const input = "The database shall be available for 99.5% of business hours.";
       const result = await quickCheckLooksLikeRequirement({ statement: input, beFriendly: true, sessionId: SESSION_ID });
       expect(result.isSpecification).toBe(true);
-   }).timeout(TEST_TIMEOUT);
+   });
 });

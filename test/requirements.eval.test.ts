@@ -12,7 +12,6 @@
 
 
 import { expect } from 'expect';
-import { describe, it } from 'mocha';
 
 import { evaluateRequirement } from '../src/Evaluate';
 
@@ -108,7 +107,7 @@ describe('Requirements Evaluation Tests', () => {
       // indicating proper active voice construction
       expect(response).toMatch(/(shall|must) (be confirmed by|confirm|be verified by|verify|validate|prevent|record|determine)/);
 
-   }).timeout(TEST_TIMEOUT);
+   });
 
    it('should improve General Rules / no definition reference', async () => {
 
@@ -117,7 +116,7 @@ describe('Requirements Evaluation Tests', () => {
       // indicating proper definition construction
       expect(response).toMatch(/(as defined in|as defined by|defined in|defined by|in accordance with|adhering to|according to|specified by|specified in|listed in|shall adhere to|shall conform to|conform to)/);
 
-   }).timeout(TEST_TIMEOUT);
+   });
 
    it('should improve General Rules / spelling', async () => {
 
@@ -125,7 +124,7 @@ describe('Requirements Evaluation Tests', () => {
 
       expect(response).toMatch(/(ordnance)/);
 
-   }).timeout(TEST_TIMEOUT);   
+   });   
 
    it('should improve General Rules / no definition', async () => {
 
@@ -134,7 +133,7 @@ describe('Requirements Evaluation Tests', () => {
       // indicating proper definition construction
       expect(response).toMatch(/(defined in|defined by|in accordance with|adhering to|according to|specified by|specified in|listed in|time display shall|shall adhere to|format|current time in|current time of day|coordinated universal time|UTC|resolution|update)/);
 
-   }).timeout(TEST_TIMEOUT);   
+   });   
 
    it('should improve General Rules / no definition 2', async () => {
 
@@ -143,7 +142,7 @@ describe('Requirements Evaluation Tests', () => {
       // indicating proper definition construction
       expect(response).toMatch(/(defined in|defined by|in accordance with|adhering to|according to|specified by|specified in|listed in|selected from)/);
 
-   }).timeout(TEST_TIMEOUT);     
+   });     
 
    it('should improve General Rules / no units', async () => {
 
@@ -152,7 +151,7 @@ describe('Requirements Evaluation Tests', () => {
       // indicating proper unit construction
       expect(response).toMatch(/(Celsius|Farenheit|Kelvin|°C|deg C|degrees C)/);
 
-   }).timeout(TEST_TIMEOUT);  
+   });  
 
    it('should improve General Rules / no active voice and no definitions', async () => {
 
@@ -162,7 +161,7 @@ describe('Requirements Evaluation Tests', () => {
       // 2. The exact phrases "shall categorize" or "shall assess"
       expect(response).toMatch(/(?:shall|must)[\s\S]*?(?:shall|must)|(shall categorize|shall assess|shall classify|shall verify|shall adhere to)/s);    
 
-   }).timeout(TEST_TIMEOUT);
+   });
 
    it('should improve General Rules / two Requirements', async () => {
 
@@ -172,7 +171,7 @@ describe('Requirements Evaluation Tests', () => {
       // indicating requirement has been split into two separate requirements
       expect(response).toMatch(/(?:shall|must)[\s\S]*?(?:shall|must)/s);
 
-      }).timeout(TEST_TIMEOUT);
+      });
 
    it('should improve General Rules / unclear definitions', async () => {
 
@@ -183,7 +182,7 @@ describe('Requirements Evaluation Tests', () => {
       // 2. The phrases "defined in" and variants 
       expect(response).toMatch(/(?:shall|must)[\s\S]*?(?:shall|must)|(defined in|defined by|defined as)/s);       
 
-      }).timeout(TEST_TIMEOUT);
+      });
 
    it('should improve General Rules / not measurable', async () => {
 
@@ -191,7 +190,7 @@ describe('Requirements Evaluation Tests', () => {
 
       expect(response).toMatch(/(%|≥|<=|>=|less than|more than|greater than|at least|at most|not exceeding|not below|confirmed by|verified by|verified through|verified via|specified|measured over|operating period)/);
 
-   }).timeout(TEST_TIMEOUT);
+   });
 
    it('should improve General Rules / not measurable 2', async () => {
 
@@ -199,6 +198,6 @@ describe('Requirements Evaluation Tests', () => {
 
       expect(response).toMatch(/(mg|ppm|PPM|%|less than|more than|greater than|at least|at most|not exceeding|not below|confirmed by|verified by|verified through|verified via|shall verify|specified)/);
 
-   }).timeout(TEST_TIMEOUT);
+   });
 
 });

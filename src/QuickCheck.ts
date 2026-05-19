@@ -16,7 +16,7 @@
 
 import { IQuickCheckRequest, IQuickCheckResponse } from "../export/RequirementsLinterApiTypes";
 
-import { ChatDriverFactory, EModel, EModelProvider, EVerbosity, IPrompt, PromptInMemoryRepository, InvalidParameterError } from "prompt-repository";
+import { ChatDriverFactory, EModel, EModelProvider, EVerbosity, IPrompt, PromptInMemoryRepository, InvalidParameterError } from "@jonverrier/prompt-repository";
 import { requirementsFeasibilityCheckerPromptId, userStoryFeasibilityCheckerPromptId } from "./PromptIds";
 import prompts from "./Prompts.json";
 const typedPrompts = prompts as IPrompt[];

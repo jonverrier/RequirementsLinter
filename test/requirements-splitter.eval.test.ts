@@ -14,7 +14,6 @@
 
 
 import { expect } from 'expect';
-import { describe, it } from 'mocha';
 import { improveRequirementSplit } from '../src/Evaluate';
 
 describe('Requirements Splitter Tests', () => {
@@ -28,7 +27,7 @@ describe('Requirements Splitter Tests', () => {
         // Should have single "shall/must" statements      
         const shallCount = (response.proposedNewSpecification.toLowerCase().match(/(shall|must)/g) || []).length;
         expect(shallCount).toEqual(1);        
-    }).timeout(TEST_TIMEOUT);
+    });
 
     // Test 2: Similar requirement with different wording but same meaning
     it('should handle equivalent requirement with different wording', async () => {
@@ -38,7 +37,7 @@ describe('Requirements Splitter Tests', () => {
         // Should have single "shall/must" statements       
         const shallCount = (response.proposedNewSpecification.toLowerCase().match(/(shall|must)/g) || []).length;
         expect(shallCount).toEqual(1);
-    }).timeout(TEST_TIMEOUT);
+    });
 
     // Test 3: Complex requirement that should be split
     it('should split compound requirements', async () => {
@@ -49,5 +48,5 @@ describe('Requirements Splitter Tests', () => {
         const shallCount = (response.proposedNewSpecification.toLowerCase().match(/(shall|must)/g) || []).length;
 
         expect(shallCount).toBeGreaterThan(1);
-    }).timeout(TEST_TIMEOUT);
+    });
 });
