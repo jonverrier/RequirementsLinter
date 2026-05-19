@@ -23,7 +23,6 @@
 // ===End StrongAI Generated Comment===
 
 
-import { describe, it } from 'mocha';
 import { expect } from 'expect';
 import { evaluateRequirement } from '../src/Evaluate';
 
@@ -43,7 +42,7 @@ describe('evaluateRequirement Integration Tests', () => {
         // Assert
         expect(result.evaluation.length).toBeGreaterThan(0);
         expect(result.proposedNewSpecification.length).toBeGreaterThan(0);
-    }).timeout(TEST_TIMEOUT);
+    });
 
     it('should handle a complex requirement', async () => {
         // Arrange
@@ -57,7 +56,7 @@ describe('evaluateRequirement Integration Tests', () => {
         expect(result.proposedNewSpecification.length).toBeGreaterThan(0);
         // Complex requirements should be split into multiple lines
         expect(result.proposedNewSpecification.split('\n').length).toBeGreaterThan(1);
-    }).timeout(TEST_TIMEOUT);
+    });
 
     it('should handle empty input', async () => {
         // Arrange
@@ -67,7 +66,7 @@ describe('evaluateRequirement Integration Tests', () => {
         await expect(evaluateRequirement({ specification: inputRequirement, sessionId: SESSION_ID }))
             .rejects
             .toThrow();
-    }).timeout(TEST_TIMEOUT);
+    });
 
     it('should handle very short requirements', async () => {
         // Arrange
@@ -81,7 +80,7 @@ describe('evaluateRequirement Integration Tests', () => {
         expect(result.proposedNewSpecification.length).toBeGreaterThan(0);
         // Improved version should be more detailed
         expect(result.proposedNewSpecification.length).toBeGreaterThan(inputRequirement.length);
-    }).timeout(TEST_TIMEOUT);
+    });
 
     it('should handle requirements with special characters', async () => {
         // Arrange
@@ -93,5 +92,5 @@ describe('evaluateRequirement Integration Tests', () => {
         // Assert
         expect(result.evaluation.length).toBeGreaterThan(0);
         expect(result.proposedNewSpecification.length).toBeGreaterThan(0);
-    }).timeout(TEST_TIMEOUT);
+    });
 });

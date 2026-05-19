@@ -19,7 +19,6 @@
 // ===End StrongAI Generated Comment===
 
 
-import { describe, it } from 'mocha';
 import { expect } from 'expect';
 import { evaluateUserStory } from '../src/Evaluate';
 
@@ -39,7 +38,7 @@ describe('evaluateUserStory Integration Tests', () => {
         // Assert
         expect(result.evaluation.length).toBeGreaterThan(0);
         expect(result.proposedNewSpecification.length).toBeGreaterThan(0);
-    }).timeout(TEST_TIMEOUT);
+    });
 
     it('should handle a complex user story', async () => {
         // Arrange
@@ -53,7 +52,7 @@ describe('evaluateUserStory Integration Tests', () => {
         expect(result.proposedNewSpecification.length).toBeGreaterThan(0);
         // Complex user stories should be split into multiple stories
         expect(result.proposedNewSpecification.split('\n').length).toBeGreaterThan(1);
-    }).timeout(TEST_TIMEOUT);
+    });
 
     it('should handle empty input', async () => {
         // Arrange
@@ -63,7 +62,7 @@ describe('evaluateUserStory Integration Tests', () => {
         await expect(evaluateUserStory({ specification: inputUserStory, sessionId: SESSION_ID }))
             .rejects
             .toThrow();
-    }).timeout(TEST_TIMEOUT);
+    });
 
     it('should handle very short user stories', async () => {
         // Arrange
@@ -77,7 +76,7 @@ describe('evaluateUserStory Integration Tests', () => {
         expect(result.proposedNewSpecification.length).toBeGreaterThan(0);
         // Improved version should be more detailed and follow user story format
         expect(result.proposedNewSpecification).toMatch(/As a .* I want to .* so that .*/);
-    }).timeout(TEST_TIMEOUT);
+    });
 
     it('should handle user stories with special characters', async () => {
         // Arrange
@@ -89,7 +88,7 @@ describe('evaluateUserStory Integration Tests', () => {
         // Assert
         expect(result.evaluation.length).toBeGreaterThan(0);
         expect(result.proposedNewSpecification.length).toBeGreaterThan(0);
-    }).timeout(TEST_TIMEOUT);
+    });
 
     it('should handle user stories with acceptance criteria', async () => {
         // Arrange
@@ -103,5 +102,5 @@ describe('evaluateUserStory Integration Tests', () => {
         expect(result.proposedNewSpecification.length).toBeGreaterThan(0);
         // Should maintain or improve the acceptance criteria
         expect(result.proposedNewSpecification.toLowerCase()).toContain('acceptance criteria');
-    }).timeout(TEST_TIMEOUT);
+    });
 }); 

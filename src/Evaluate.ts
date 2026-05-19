@@ -36,7 +36,7 @@ import fs from "fs";
 
 import { ISpecificationEvaluation, ISpecificationEvaluationRequest } from "../export/RequirementsLinterApiTypes";
 
-import { EModel, EModelProvider, EVerbosity, ChatDriverFactory, IPrompt, PromptInMemoryRepository, InvalidParameterError } from "prompt-repository";
+import { EModel, EModelProvider, EVerbosity, ChatDriverFactory, IPrompt, PromptInMemoryRepository, InvalidParameterError } from "@jonverrier/prompt-repository";
 import { requirementsGuidelineCheckerPromptId, requirementsSplitterPromptId, userStoryGuidelineCheckerPromptId } from './PromptIds';
 
 import prompts from './Prompts.json';

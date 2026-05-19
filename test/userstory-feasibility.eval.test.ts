@@ -14,8 +14,7 @@
 
 
 import { expect } from 'expect';
-import { describe, it } from 'mocha';
-import { PromptInMemoryRepository, IPromptRepository, IPrompt, EModel, EModelProvider, EVerbosity, ChatDriverFactory } from "prompt-repository";
+import { PromptInMemoryRepository, IPromptRepository, IPrompt, EModel, EModelProvider, EVerbosity, ChatDriverFactory } from "@jonverrier/prompt-repository";
 import prompts from '../src/Prompts.json';
 import { userStoryFeasibilityCheckerPromptId } from '../src/PromptIds';
 
@@ -49,19 +48,19 @@ describe('User Story Feasibility Tests', () => {
         const input = "As a Race Engineer, I want to monitor the tire temperature to ensure it stays between 80-100°C during the race.";
         const response = await evaluateUserStory(promptRepo, input);
         expect(response).toBe("yes");
-    }).timeout(TEST_TIMEOUT);
+    });
 
     // Test 2: Similar user story with different values but same structure
     it('should identify a similar user story with different values', async () => {
         const input = "As a Race Engineer, I want to monitor the tire temperature to ensure it stays between 75-95°C during the race.";
         const response = await evaluateUserStory(promptRepo, input);
         expect(response).toBe("yes");
-    }).timeout(TEST_TIMEOUT);
+    });
 
     // Test 3: Non-user story statement that should return "no"
     it('should reject a non-user story statement', async () => {
         const input = "I love looking at the tires on an F1 car.";
         const response = await evaluateUserStory(promptRepo, input);
         expect(response).toBe("no");
-    }).timeout(TEST_TIMEOUT);
+    });
 }); 

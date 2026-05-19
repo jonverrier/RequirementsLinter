@@ -16,8 +16,7 @@
 
 
 import { expect } from 'expect';
-import { describe, it } from 'mocha';
-import { PromptInMemoryRepository, IPromptRepository, IPrompt, EModel, EModelProvider, EVerbosity, ChatDriverFactory } from "prompt-repository";
+import { PromptInMemoryRepository, IPromptRepository, IPrompt, EModel, EModelProvider, EVerbosity, ChatDriverFactory } from "@jonverrier/prompt-repository";
 import prompts from '../src/Prompts.json';
 import { requirementsFeasibilityCheckerPromptId } from '../src/PromptIds';
 
@@ -51,19 +50,19 @@ describe('Requirements Feasibility Tests', () => {
         const input = "The Formula 1 car shall maintain a minimum fuel level of 1.0 liters after completing the race.";
         const response = await evaluateRequirementFeasibility(promptRepo, input);
         expect(response).toBe("yes");
-    }).timeout(TEST_TIMEOUT);
+    });
 
     // Test 2: Similar requirement with different values but same structure
     it('should identify a similar requirement with different values', async () => {
         const input = "The Formula 1 car shall maintain a minimum fuel level of 0.5 liters after completing the race.";
         const response = await evaluateRequirementFeasibility(promptRepo, input);
         expect(response).toBe("yes");
-    }).timeout(TEST_TIMEOUT);
+    });
 
     // Test 3: Non-requirement statement that should return "no"
     it('should reject a non-requirement statement', async () => {
         const input = "Formula 1 cars are really fast and exciting to watch during the race.";
         const response = await evaluateRequirementFeasibility(promptRepo, input);
         expect(response).toBe("no");
-    }).timeout(TEST_TIMEOUT);
+    });
 });

@@ -18,7 +18,6 @@
 // ===End StrongAI Generated Comment===
 
 import { expect } from 'expect';
-import { describe, it } from 'mocha';
 import { evaluateUserStory } from '../src/Evaluate';
 import { ISpecificationEvaluationRequest } from '../export/RequirementsLinterApiTypes';
 
@@ -41,7 +40,7 @@ describe('User Story Evaluation Tests', () => {
         
         expect(result.evaluation.toLowerCase()).toMatch(/(missing|lacks)/);
         expect(result.evaluation.toLowerCase()).toContain('actor');
-    }).timeout(TEST_TIMEOUT);
+    });
 
     it('Test Case 2: Missing Goal', async () => {
         const input = "As a developer, I need to validate requirements.";
@@ -51,7 +50,7 @@ describe('User Story Evaluation Tests', () => {
         
         expect(result.evaluation.toLowerCase()).toMatch(/(missing|lacks)/);
         expect(result.evaluation.toLowerCase()).toMatch(/(goal|business outcome|outcome|benefit)/);
-    }).timeout(TEST_TIMEOUT);
+    });
 
     it('Test Case 3: Non-INVEST Compliant', async () => {
         const input = "As a team, we need to build everything in the system so users are happy.";
@@ -60,7 +59,7 @@ describe('User Story Evaluation Tests', () => {
         const result = await evaluateUserStory(request);
         
         expect(result.evaluation.toLowerCase()).toMatch(/(violates|violating|does not comply|does not adhere|fails to meet|does not meet|not a valid user story|does not follow|not testable|not estimable)/);
-    }).timeout(TEST_TIMEOUT);
+    });
 
     it('Test Case 4: Vague Terms', async () => {
         const input = "As a developer, I need an appropriate tool to efficiently validate many requirements.";
@@ -69,7 +68,7 @@ describe('User Story Evaluation Tests', () => {
         const result = await evaluateUserStory(request);
         
         expect(result.evaluation.toLowerCase()).toMatch(/(vague|terms)/);
-    }).timeout(TEST_TIMEOUT);
+    });
 
     it('Test Case 5: Good Compliance', async () => {
         const input = "As a developer, I need to validate requirements so that I can ensure they meet quality standards. Acceptance criteria: I receive at least one suggestion to improve each user story I provide to the system. The system processes requirements in noi less than 30 seconds with a target of 10 seconds.";
@@ -78,5 +77,5 @@ describe('User Story Evaluation Tests', () => {
         const result = await evaluateUserStory(request);
         
         expect(result.evaluation).not.toMatch(/(violates|does not adhere|does not comply|fails to meet|does not meet)/);
-    }).timeout(TEST_TIMEOUT);
+    });
 }); 

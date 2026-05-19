@@ -25,9 +25,10 @@
    "references": [],
    "include": [
       "**/*.json",
-         "src/**/*.ts",
+      "src/**/*.ts",
       "src/functions/src/**/*.ts",
       "src/**/*.md",
       "export/**/*.ts"
-, "test/userstory-eval.test.ts"   ]
+   ],
+   "exclude": ["test", "node_modules", "dist"]
 }

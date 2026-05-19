@@ -1,6 +1,6 @@
 {
    "name": "requirements-linter",
-   "version": "0.1.0",
+   "version": "0.1.1",
    "description": "Requirements linter functions for the AI-enabled software lifecycle workbench",
    "main": "dist/src/entry.js",
    "directories": {
@@ -11,28 +11,28 @@
    "license": "MIT",
    "scripts": {
       "build": "tsc -b && ncp ./src/RequirementsGuidelines.md dist/src/RequirementsGuidelines.md && ncp ./src/UserStoryGuidelines.md dist/src/UserStoryGuidelines.md",
-      "install": "npm install ../PromptRepository",
+      "setup": "npm install ../PromptRepository",
       "watch": "tsc -b -w",
       "clean": "rimraf dist",
       "prestart": "npm run clean && npm run build",
       "start": "func start",
-      "test": "node --loader ts-node/esm --experimental-specifier-resolution=node node_modules/mocha/bin/mocha.js test/**/*.test.ts",
-      "test-mini": "mocha --require ts-node/register --extensions ts,js test/**/*.test.ts -g \"User Story*\" --exit"
+      "test": "jest --selectProjects unit",
+      "test:ci": "jest --selectProjects ci",
+      "test:eval": "jest --selectProjects eval",
+      "test-mini": "jest --selectProjects mini"
    },
    "devDependencies": {
-      "@types/chai": "^5.2.1",
-      "@types/mocha": "^10.0.10",
+      "@types/jest": "^29.5.14",
       "@types/node": "^22.13.8",
       "@types/sinon": "^17.0.4",
       "axios": "^1.8.4",
       "expect": "^29.7.0",
-      "mocha": "^11.1.0",
+      "jest": "^29.7.0",
       "ncp": "^2.0.0",
       "openai": "^4.89.1",
-      "prompt-repository": "file:../PromptRepository",
       "rimraf": "^6.0.1",
       "sinon": "^20.0.0",
-      "ts-node": "^10.9.2",
+      "ts-jest": "^29.2.5",
       "tslib": "^2.8.1",
       "typescript": "^5.7.3"
    },

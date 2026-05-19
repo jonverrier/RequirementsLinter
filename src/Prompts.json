@@ -31,7 +31,7 @@
       "description": "Reviews a requirement for conformance to good practice.",
       "version": "1.0",
       "schemaversion": "0.1",
-      "systemPrompt": "You are a senior business analyst. You review the work of more junior staff members and privide clear feedback in simple language.",
+      "systemPrompt": "You are a senior business analyst. You review the work of more junior staff members and provide clear feedback in simple language.",
       "userPrompt": "Given the following guidelines:\n```guidelines\n{guidelines}\n```\n review this requirement:\n```requirement\n{specification}\n```\n Review the requirement in the light of the guidelines. Please generate a succinct {wordCount} word review of the requirement by applying the guidelines. Focus on the most important issues first. For each issue found, cite the specific guideline rule number that was violated. Provide a re-phrased requirement (or multiple requirements if necessary) to comply with the guidelines, using code fences to demarcate the suggested new requirement(s). Consider the specific guidelines you have cited. Check your spelling and grammar.",
       "userPromptParameters": [
          {
@@ -60,7 +60,7 @@
       "description": "Reviews a user story for conformance to good practice.",
       "version": "1.0",
       "schemaversion": "0.1",
-      "systemPrompt": "You are a senior business analyst. You review the work of more junior staff members and privide clear feedback in simple language.",
+      "systemPrompt": "You are a senior business analyst. You review the work of more junior staff members and provide clear feedback in simple language.",
       "userPrompt": "Given the following guidelines:\n```guidelines\n{guidelines}\n```\n review this user story:\n```userStory\n{specification}\n```\n Review the user story in the light of the guidelines. Please generate a succinct {wordCount} word review of the user story by applying the guidelines. Focus on the most important issues first. For each issue found, cite the specific guideline rule number that was violated. Provide a re-phrased user story (or multiple user stories if necessary) to comply with the guidelines, using code fences to demarcate the suggested new user story(s). Consider the specific guidelines you have cited. Check your spelling and grammar.",
       "userPromptParameters": [
          {
@@ -89,7 +89,7 @@
       "description": "Reviews a requirement and splits it if necessary.",
       "version": "1.0",
       "schemaversion": "0.1",
-      "systemPrompt": "You are a senior business analyst. You review the work of more junior staff members and privide clear feedback in simple language. Your work is suitable for formal specification documents.",
+      "systemPrompt": "You are a senior business analyst. You review the work of more junior staff members and provide clear feedback in simple language. Your work is suitable for formal specification documents.",
       "userPrompt": "Here is a requirement:\n```requirement\n{requirement}\n```\nIf the requirement should be split into multiple distinct requirements for clarity, testability, or traceability, please rewrite them as separate requirements. Use code fences to demarcate the set of new requirements. Do not split if the requirement can reasonably be written as a single requirement. If the requirement does not need to be split, return it unchanged within code fences.",
       "userPromptParameters": [
          {
@@ -106,7 +106,7 @@
       "description": "Reviews some text to see if it looks like a requirements statement.",
       "version": "1.0",
       "schemaversion": "0.1",
-      "systemPrompt": "You are a senior business analyst. You review the work of more junior staff members and privide clear feedback in simple language.",
+      "systemPrompt": "You are a senior business analyst. You review the work of more junior staff members and provide clear feedback in simple language.",
       "userPrompt": "Here is a statement that a draft of or part of a system specification:\n```statement\n{statement}\n```\n. Review the statement and respond with a simple 'YES' or 'NO' to indicate if it looks like the statement is a draft or part of a system specification. The writer may be inexperienced and looking for help, so even if it is not a good draft, respond 'YES'. If the statement really does not look like a draft or part of a system specification, respond with 'NO'.",
       "userPromptParameters": [
          {
@@ -123,8 +123,8 @@
       "description": "Reviews some text to see if it looks like a user story.",
       "version": "1.0",
       "schemaversion": "0.1",
-      "systemPrompt": "You are a senior business analyst. You review the work of more junior staff members and privide clear feedback in simple language.",
-      "userPrompt": "Here is a statement that a draft of or part of a user story:\n```statement\n{statement}\n```\n. Review the statement and respond with a simple 'YES' or 'NO' to indicate if it looks like the statement is a draft or part of a  tory. The writer may be inexperienced and looking for help, so even if it is not a good draft, respond 'YES'. If the statement really does not look like a draft or part of a user story, respond with 'NO'.",
+      "systemPrompt": "You are a senior business analyst. You review the work of more junior staff members and provide clear feedback in simple language.",
+      "userPrompt": "Here is a statement that a draft of or part of a user story:\n```statement\n{statement}\n```\n. Review the statement and respond with a simple 'YES' or 'NO' to indicate if it looks like the statement is a draft or part of a user story. The writer may be inexperienced and looking for help, so even if it is not a good draft, respond 'YES'. If the statement really does not look like a draft or part of a user story, respond with 'NO'.",
       "userPromptParameters": [
          {
             "name": "statement",

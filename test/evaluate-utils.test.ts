@@ -23,7 +23,6 @@
 // ===End StrongAI Generated Comment===
 
 
-import { describe, it } from 'mocha';
 import { expect } from 'expect';
 import { extractCodeFencedContent } from '../src/Evaluate';
 
